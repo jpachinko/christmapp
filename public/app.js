@@ -5,17 +5,23 @@ async function cargarRegistros() {
   const lista = document.getElementById("lista");
   lista.innerHTML = "";
 
- data.forEach((item, i) => {
-  const li = document.createElement("li");
-  li.classList.add("item-row");
+data.forEach((item, i) => {
+  const tr = document.createElement("tr");
 
-  li.innerHTML = `
-    <span><strong>${item.nombre}</strong> — ${item.cantidad}</span>
-    <button onclick="editar(${i})">Editar</button>
+  tr.innerHTML = `
+    <td>${i + 1}</td>
+    <td>${item.nombre}</td>
+    <td>${item.cantidad}</td>
+    <td class="text-end">
+      <button class="btn btn-warning btn-sm" onclick="editar(${i})">
+        Editar
+      </button>
+    </td>
   `;
 
-  lista.appendChild(li);
+  lista.appendChild(tr);
 });
+
 
 }
 
